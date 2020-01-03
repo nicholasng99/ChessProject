@@ -51,20 +51,17 @@
     <ClCompile Include="Bishop.cpp">
       <Filter>Source Files\Pieces</Filter>
     </ClCompile>
-    <ClCompile Include="Baord.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MonteCarlo.cpp">
       <Filter>Source Files\Algorithms</Filter>
     </ClCompile>
     <ClCompile Include="Minimax.cpp">
       <Filter>Source Files\Algorithms</Filter>
     </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Baord.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Bishop.h">
       <Filter>Header Files\Pieces</Filter>
     </ClInclude>
@@ -91,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="MonteCarlo.h">
       <Filter>Header Files\Algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
