@@ -5,13 +5,15 @@
 enum class Player : bool { WHITE, BLACK };
 
 struct Pos {
+public:
 	int x, y;
-	Pos();
 	Pos(const int x, const int y); /*{ this->x = x;	this->y = y; } limit to board size*/
 	const Pos operator+(const Pos& rhs) const;
 	const Pos operator-(const Pos& rhs) const;
 	const bool operator==(const Pos& rhs) const; /*{ return x == pos.x && y == pos.y; }*/
-	const std::string chessPos() const; //convert 0,0 to A1 and 7,7 to h8 etc.
+	const bool onboard() const; //true if piece is still no the board
+private:
+	const char letters[8]{'A','B','C','D','E','F','G','H'};
 };
 
 class Piece
