@@ -22,9 +22,9 @@ public:
 	
 	Piece(const Pos pos, const Player owner, const PieceType type);
 	const Player getOwner() const;
-	const bool move(const Pos target, const std::map<Pos, Piece> pieces);
-	virtual const bool validMove(const Pos target) const = 0;
-private:
+	const bool move(const Pos target, const std::map<Pos, Piece> pieces);//returns true if piece moves
+	virtual const bool validMove(const Pos target) const = 0;//returns true if move is acceptable based on PieceType
+protected:
 	Pos pos;
 	Player owner;
 	PieceType type;

@@ -4,8 +4,8 @@
 class Knight : public Piece
 {
 public:
-	Knight(const Pos pos, const Player owner); // in cpp : Piece(pos,owner,PieceType::KNIGHT)
-	const bool validMove(const Pos pos, const std::map<Pos, Piece> pieces) const;
+	Knight(const Pos pos, const Player owner); 
+	const bool validMove(const Pos target) const;
 private:
 };
 

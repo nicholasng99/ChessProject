@@ -4,8 +4,10 @@
 class Pawn : public Piece
 {
 public:
-	Pawn(const Pos pos, const Player owner); // in cpp : Piece(pos,owner,PieceType::PAWN)
-	const bool validMove(const Pos pos, const std::map<Pos, Piece> pieces) const;
-private:
+	Pawn(const Pos pos, const Player owner);
+	const bool move(const Pos target, const std::map<Pos, Piece> pieces);//returns true if piece moves
+	const bool validMove(const Pos target) const;
+protected:
+	bool firstMove;
 };
 

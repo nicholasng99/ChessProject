@@ -1,15 +1,11 @@
 #include "Piece.h"
 
-Pos::Pos()
+Pos::Pos() : x(0), y(0)
 {
-	this->x = 0;
-	this->y = 0;
 }
 
-Pos::Pos(const int x, const int y)
+Pos::Pos(const int x, const int y) : x(x), y(y)
 {
-	this->x = x;
-	this->y = y;
 }
 
 Pos Pos::operator+(const Pos& rhs) const
@@ -37,11 +33,8 @@ const bool Pos::onboard() const
 	return (x >= 0 && x <= 7 && y >= 0 && y <= 7);
 }
 
-Piece::Piece(const Pos pos, const Player owner, const PieceType type)
+Piece::Piece(const Pos pos, const Player owner, const PieceType type) : pos(pos), owner(owner), type(type)
 {
-	this->pos = pos;
-	this->owner = owner;
-	this->type = type;
 }
 
 const Player Piece::getOwner() const
@@ -52,8 +45,8 @@ const Player Piece::getOwner() const
 const bool Piece::move(const Pos target, const std::map<Pos, Piece> pieces)
 {
 	if (!target.onboard() ||
-		(pieces.count(target) > 0 && pieces.at(target).getOwner() == owner) ||
-		(!validMove(target)) ||
+		(pieces.count(target) > 0 && pieces.at(target).getOwner() == owner) ||//also handles move to same pos
+		(!validMove(target)) ||//requires validMove implementation
 		(type != PieceType::KNIGHT && blocked(target, pieces))
 		)
 		return false;
@@ -77,6 +70,7 @@ const bool Piece::blocked(const Pos target, const std::map<Pos, Piece> pieces) c
 		direction.y = -1;
 	while (displacement.x != 0 && displacement.y != 0) {
 		displacement = displacement - direction;
+		//if a piece exists on the path to target
 		if (pieces.count(pos + displacement) == 1)
 			return true;
 	}
