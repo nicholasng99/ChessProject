@@ -42,6 +42,11 @@ const Player Piece::getOwner() const
 	return owner;
 }
 
+/*handles:
+-going off the board
+-attempting to capture your own piece
+-moving like your piece type
+-piece blocking if not a knight*/
 const bool Piece::move(const Pos target, const std::map<Pos, Piece> pieces)
 {
 	if (!target.onboard() ||
@@ -54,6 +59,7 @@ const bool Piece::move(const Pos target, const std::map<Pos, Piece> pieces)
 	return true;
 }
 
+/*returns true if there is a piece in the path to target pos*/
 const bool Piece::blocked(const Pos target, const std::map<Pos, Piece> pieces) const
 {
 	Pos displacement = target - pos;
