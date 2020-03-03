@@ -47,7 +47,7 @@ const Player Piece::getOwner() const
 -attempting to capture your own piece
 -moving like your piece type
 -piece blocking if not a knight*/
-const bool Piece::move(const Pos target, const std::map<Pos, Piece> pieces)
+const bool Piece::move(const Pos target, const std::map<Pos, Piece>& pieces)
 {
 	if (!target.onboard() ||
 		(pieces.count(target) > 0 && pieces.at(target).getOwner() == owner) ||//also handles move to same pos
@@ -60,7 +60,7 @@ const bool Piece::move(const Pos target, const std::map<Pos, Piece> pieces)
 }
 
 /*returns true if there is a piece in the path to target pos*/
-const bool Piece::blocked(const Pos target, const std::map<Pos, Piece> pieces) const
+const bool Piece::blocked(const Pos target, const std::map<Pos, Piece>& pieces) const
 {
 	Pos displacement = target - pos;
 	if (displacement.x == 1 || displacement.y == 1) // a displacement of 1 is impossible to be blocked

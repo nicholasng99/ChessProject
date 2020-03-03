@@ -77,6 +77,11 @@ const std::vector<Pos> Board::possibleMoves(const Pos& pos) const
 	return std::vector<Pos>();
 }
 
+const std::vector<Board::Move> Board::allPossibleMoves() const
+{
+	return std::vector<Move>();
+}
+
 //returns an evaluation value of the current board position + favouring white
 const int Board::evaluation() const
 {

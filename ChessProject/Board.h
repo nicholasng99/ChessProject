@@ -30,6 +30,7 @@ public:
 	void print() const;
 	//const methods
 	const std::vector<Pos> possibleMoves(const Pos& pos) const;
+	const std::vector<Move> allPossibleMoves() const;
 	const int evaluation() const;
 	const bool check(Player player) const;
 	const bool checkMate(Player player) const;

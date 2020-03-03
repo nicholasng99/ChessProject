@@ -5,7 +5,7 @@ Pawn::Pawn(const Pos pos, const Player owner) : Piece(pos, owner, PieceType::PAW
 	firstMove = true;
 }
 
-const bool Pawn::move(const Pos target, const std::map<Pos, Piece> pieces)
+const bool Pawn::move(const Pos target, const std::map<Pos, Piece>& pieces)
 {
 	if (Piece::move(target, pieces)) {
 		firstMove = false;
