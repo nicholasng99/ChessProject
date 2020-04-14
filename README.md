@@ -1,2 +1,2 @@
 # ChessProject
-Chess project(uncompleted with errors)
+Chess project(uncompleted and abandoned with errors)
